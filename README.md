@@ -7,6 +7,14 @@ Usage:
 ```
 nikonscan-net2tiff input.nef >output.tif
 ```
+Or if you need to convert a large number of files:
+```
+for i in *.nef ; do nikonscan-net2tiff "$i" >"${i%nef}tif" ; done
+```
+You can also directly pipe the output to ImageMagick, for instance if you want to losslessly compress the output files as PNG (which yields much smaller files):
+```
+for i in *.nef ; do nikonscan-net2tiff "$i" | convert - "${i%nef}png" ; done
+```
 
 To compile this program, you will need a C-compiler such as GCC.     
 To install GCC in Debian or Ubuntu Linux, run: `sudo apt install build-essential`     
