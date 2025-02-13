@@ -4,6 +4,7 @@ A simple command-line tool to convert a Nikon Scan NEF file to a PNM image file
 The [Nikon Scan](https://www.nikonimgsupport.com/eu/BV_article?articleNo=000044682) software which was shipped with the Nikon Coolscan slide and negative scanners has the option to write scanned images to a "raw" file with the extension NEF. Unfortunately these files are not compatible with the raw NEF images that are produced by Nikon digital cameras, which is impractical and confusing. The NEF files produced by NikonScan are actually weirdly structured TIFF-files. This simple command line tool takes a NikonScan NEF as input, strips off the extra information, decodes the image data and writes a PNM file (Portable AnyMap) to the standard output. PNM-files can be read by many programs and can be converted to other image formats using ImageMagick.
 
 I recently found this code on an old harddisk, it seems to have been written by Dave Coffin as part of the [original DCRAW package](https://github.com/ncruces/dcraw). In the original version, the file is called [scan.c](https://github.com/ncruces/dcraw/blob/master/scan.c).
+I have compiled an executable for 64-bit Linux, which is provided in the [tar.gz release package](https://github.com/lvzon/nikonscan-nef-to-pnm/releases/tag/v1.0). Currently I cannot compile it for Windows or Mac, but if you can, feel free to send me the executable and I will add it.
 
 Usage:
 ```
@@ -18,7 +19,7 @@ You can also directly pipe the output to ImageMagick, for instance if you want t
 for i in *.nef ; do nikonscan-nef2pnm "$i" | convert - "${i%nef}png" ; done
 ```
 
-To compile this program, you will need a C-compiler such as GCC.     
+To (re)compile this program, you will need a C-compiler such as GCC.     
 To install GCC in Debian or Ubuntu Linux, run: `sudo apt install build-essential`     
 In order to install GCC on Mac, first install [Homebrew](https://brew.sh) and then type: `brew install gcc`     
 For Windows, you'll need to install [MinGW](https://sourceforge.net/projects/mingw/).
