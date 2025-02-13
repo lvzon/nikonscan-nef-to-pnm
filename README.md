@@ -7,7 +7,7 @@ I recently found this code on an old harddisk, it seems to have been written by 
 
 Usage:
 ```
-nikonscan-nef2ppm input.nef >output.ppm
+nikonscan-nef2pnm input.nef >output.pnm
 ```
 Or if you need to convert a large number of files:
 ```
