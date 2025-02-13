@@ -19,7 +19,7 @@ You can also directly pipe the output to ImageMagick, for instance if you want t
 for i in *.nef ; do nikonscan-nef2pnm "$i" | convert - "${i%nef}png" ; done
 ```
 
-The examples above assume that the program has been copied to a folder your executable search path, for instance `/usr/local/bin`.
+The examples above assume that the program has been copied to a folder in your executable search path, for instance `/usr/local/bin`.
 On Debian or Ubuntu, you can install ImageMagick with: `sudo apt install imagemagick`
 
 To (re)compile this program, you will need a C-compiler such as GCC.     
